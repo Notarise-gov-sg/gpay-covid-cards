@@ -1,0 +1,62 @@
+{
+  "iss": "your.account@project.iam.gserviceaccount.com",
+  "aud": "google",
+  "iat": 1620349587,
+  "typ": "savetogooglepay",
+  "origins": [],
+  "payload": {
+    "covidCardObjects": [
+      {
+        "id": "your_issuer_id.unique_object_id",
+        "issuerId": "your_issuer_id",
+        "barcode": {
+          "alternateText": "some_barcode_value",
+          "type": "qrCode",
+          "value": "some_barcode_value"
+        },
+        "cardColorHex": "#223CFF",
+        "expiration": "2021-09-09",
+        "logo": {
+          "sourceUri": {
+            "description": "Google Inc",
+            "uri": "https://www.gstatic.com/images/icons/material/system_gm/2x/healing_black_48dp.png"
+          }
+        },
+        "patientDetails": {
+          "dateOfBirth": "1881-05-19",
+          "identityAssuranceLevel": "IAL1.4",
+          "patientId": "123-456-ABC",
+          "patientIdLabel": "National ID",
+          "patientName": "John Doe"
+        },
+        "testingDetails": {
+          "testingRecord": [
+            {
+              "administrationDateTime": "2014-03-14 - (1)",
+              "contactInfo": "123 Forever Rd. 12345 Infinity, CA - (1)",
+              "provider": "Tests-R-Us - (1)",
+              "reportDateTime": "2014-01-15 - (1)",
+              "testCode": "LOINC 28496 - (1)",
+              "testDescription": "NcAid - (1)",
+              "testResultCode": "4321 - (1)",
+              "testResultDescription": "Negative - (1)",
+              "specimen": "CNT (Combined Nasal and Throat Swabs)"
+            },
+            {
+              "administrationDateTime": "2014-03-14 - (2)",
+              "contactInfo": "123 Forever Rd. 12345 Infinity, CA - (2)",
+              "provider": "Tests-R-Us - (2)",
+              "reportDateTime": "2014-01-15 - (2)",
+              "testCode": "LOINC 28496 - (2)",
+              "testDescription": "NcAid - (2)",
+              "testResultCode": "4321 - (2)",
+              "testResultDescription": "Negative - (2)",
+              "specimen": "CNT (Combined Nasal and Throat Swabs)"
+            }
+          ]
+        },
+        "title": "COVID-19 Test Result Card"
+      }
+    ]
+  }
+}

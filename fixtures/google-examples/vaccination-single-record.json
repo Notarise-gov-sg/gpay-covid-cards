@@ -1,0 +1,50 @@
+{
+  "iss": "your.account@project.iam.gserviceaccount.com",
+  "aud": "google",
+  "iat": 1620349297,
+  "typ": "savetogooglepay",
+  "origins": [],
+  "payload": {
+    "covidCardObjects": [
+      {
+        "id": "your_issuer_id.unique_object_id",
+        "issuerId": "your_issuer_id",
+        "barcode": {
+          "alternateText": "some_barcode_value",
+          "type": "qrCode",
+          "value": "some_barcode_value"
+        },
+        "cardColorHex": "#22FF33",
+        "expiration": "2021-09-09",
+        "logo": {
+          "sourceUri": {
+            "description": "Google Inc",
+            "uri": "https://www.gstatic.com/images/icons/material/system_gm/2x/healing_black_48dp.png"
+          }
+        },
+        "patientDetails": {
+          "dateOfBirth": "1881-05-19",
+          "identityAssuranceLevel": "IAL1.4",
+          "patientId": "123-456-ABC",
+          "patientIdLabel": "National ID",
+          "patientName": "Alice Smith"
+        },
+        "title": "COVID-19 Test Vaccination Card",
+        "vaccinationDetails": {
+          "vaccinationRecord": [
+            {
+              "code": "1234",
+              "contactInfo": "123 Forever Rd. 12345 Infinity, CA",
+              "description": "Q4NTL6",
+              "doseDateTime": "2014-01-12",
+              "doseLabel": "1st Dose",
+              "lotNumber": "92681",
+              "manufacturer": "Moderna",
+              "provider": "Healthgenics"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

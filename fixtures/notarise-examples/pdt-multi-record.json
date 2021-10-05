@@ -1,0 +1,62 @@
+{
+  "iat": 1633413015,
+  "aud": "google",
+  "iss": "staging@notarise-gpay-covid-cards.iam.gserviceaccount.com",
+  "typ": "savetogooglepay",
+  "origins": [],
+  "payload": {
+    "covidCardObjects": [
+      {
+        "id": "3388000000016843803.some_uuid",
+        "issuerId": "3388000000016843803",
+        "cardColorHex": "#FFFFFF",
+        "title": "COVID-19 Test Result Card",
+        "barcode": {
+          "alternateText": "Scan this QR to verify your HealthCert",
+          "type": "qrCode",
+          "value": "https://www.verify.gov.sg/"
+        },
+        "expiration": "2021-10-01",
+        "logo": {
+          "sourceUri": {
+            "description": "HealthCerts",
+            "uri": "https://www.notarise.gov.sg/images/healthcerts-logo_gpay.png"
+          }
+        },
+        "patientDetails": {
+          "dateOfBirth": "1990-01-15",
+          "identityAssuranceLevel": "IAL1.4",
+          "patientId": "E7831177G",
+          "patientIdLabel": "Passport Number",
+          "patientName": "Tan Chen Chen"
+        },
+        "testingDetails": {
+          "testingRecord": [
+            {
+              "administrationDateTime": "27 September 2020, 2:15 pm SGT",
+              "contactInfo": "MacRitchie Hospital, Thomson Road, Singapore 123000",
+              "provider": "MacRitchie Medical Clinic",
+              "reportDateTime": "28 September 2020, 2:15 pm SGT",
+              "testCode": "94531-1",
+              "testDescription": "SARS-CoV-2 (COVID-19) RNA panel - Respiratory specimen by NAA with probe detection",
+              "testResultCode": "260385009",
+              "testResultDescription": "Negative",
+              "specimen": "Nasopharyngeal swab"
+            },
+            {
+              "administrationDateTime": "27 September 2020, 2:15 pm SGT",
+              "contactInfo": "MacRitchie Hospital, Thomson Road, Singapore 123000",
+              "provider": "MacRitchie Medical Clinic",
+              "reportDateTime": "28 September 2020, 2:15 pm SGT",
+              "testCode": "94531-1",
+              "testDescription": "SARS-CoV-2 (COVID-19) RNA panel - Respiratory specimen by NAA with probe detection",
+              "testResultCode": "260385009",
+              "testResultDescription": "Negative",
+              "specimen": "Nasopharyngeal swab"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

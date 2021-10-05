@@ -1,0 +1,51 @@
+{
+  "aud": "google",
+  "iat": 1620349066,
+  "iss": "your.account@project.iam.gserviceaccount.com",
+  "typ": "savetogooglepay",
+  "origins": [],
+  "payload": {
+    "covidCardObjects": [
+      {
+        "id": "your_issuer_id.unique_object_id",
+        "issuerId": "your_issuer_id",
+        "cardColorHex": "#223CFF",
+        "title": "COVID-19 Test Result Card",
+        "barcode": {
+          "alternateText": "some_barcode_value",
+          "type": "qrCode",
+          "value": "some_barcode_value"
+        },
+        "expiration": "2021-09-09",
+        "logo": {
+          "sourceUri": {
+            "description": "Google Inc",
+            "uri": "https://www.gstatic.com/images/icons/material/system_gm/2x/healing_black_48dp.png"
+          }
+        },
+        "patientDetails": {
+          "dateOfBirth": "1881-05-19",
+          "identityAssuranceLevel": "IAL1.4",
+          "patientId": "123-456-ABC",
+          "patientIdLabel": "National ID",
+          "patientName": "John Doe"
+        },
+        "testingDetails": {
+          "testingRecord": [
+            {
+              "administrationDateTime": "2014-03-14",
+              "contactInfo": "123 Forever Rd., Infinity, CA 12345",
+              "provider": "Tests-R-Us",
+              "reportDateTime": "2014-01-15",
+              "testCode": "LOINC 28496",
+              "testDescription": "NcAid",
+              "testResultCode": "4321",
+              "testResultDescription": "Negative",
+              "specimen": "CNT (Combined Nasal and Throat Swabs)"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "iat": 1633413015,
+  "aud": "google",
+  "iss": "staging@notarise-gpay-covid-cards.iam.gserviceaccount.com",
+  "typ": "savetogooglepay",
+  "origins": [],
+  "payload": {
+    "covidCardObjects": [
+      {
+        "id": "3388000000016843803.some_uuid",
+        "issuerId": "3388000000016843803",
+        "cardColorHex": "#FFFFFF",
+        "title": "COVID-19 Test Result Card",
+        "barcode": {
+          "alternateText": "Scan this QR to verify your HealthCert",
+          "type": "qrCode",
+          "value": "https://www.verify.gov.sg/"
+        },
+        "expiration": "2021-10-01",
+        "logo": {
+          "sourceUri": {
+            "description": "HealthCerts",
+            "uri": "https://www.notarise.gov.sg/images/healthcerts-logo_gpay.png"
+          }
+        },
+        "patientDetails": {
+          "dateOfBirth": "1990-01-15",
+          "identityAssuranceLevel": "IAL1.4",
+          "patientId": "E7831177G",
+          "patientIdLabel": "Passport Number",
+          "patientName": "Tan Chen Chen"
+        },
+        "vaccinationDetails": {
+          "vaccinationRecord": [
+            {
+              "code": "1234",
+              "contactInfo": "123 Forever Rd. 12345 Infinity, CA",
+              "description": "Q4NTL6",
+              "doseDateTime": "2014-01-12",
+              "doseLabel": "1st Dose",
+              "lotNumber": "92681",
+              "manufacturer": "Moderna",
+              "provider": "Healthgenics"
+            },
+            {
+              "code": "1234",
+              "contactInfo": "123 Forever Rd. 12345 Infinity, CA",
+              "description": "Q4NTL6",
+              "doseDateTime": "2014-01-12",
+              "doseLabel": "1st Dose",
+              "lotNumber": "92681",
+              "manufacturer": "Moderna",
+              "provider": "Healthgenics"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -8,6 +8,9 @@
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist/**/*"
+  ],
   "scripts": {
     "lint": "eslint . --ext js,ts",
     "type-check": "tsc --noEmit",

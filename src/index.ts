@@ -18,8 +18,8 @@ export default (secret: Secret) => {
      * @param payload
      * @returns
      */
-    signPayload: (payload: string | Record<string, unknown> | Buffer) =>
-      jwt.sign(payload, secret, { algorithm: "RS256" }),
+    // eslint-disable-next-line @typescript-eslint/ban-types
+    signPayload: (payload: string | object | Buffer) => jwt.sign(payload, secret, { algorithm: "RS256" }),
 
     /**
      * Returns the full URL with the provided signedPayload.

@@ -18,14 +18,19 @@ export const patientDetails: PatientDetails = {
   patientName: "Tan Chen Chen",
 };
 
-export const basicDetails: BasicDetails = {
+export const basicDetailsTest: BasicDetails = {
   iss: "staging@notarise-gpay-covid-cards.iam.gserviceaccount.com",
   uuid: "some_uuid",
   issuerId: "3388000000016843803",
   title: "COVID-19 Test Result Card",
-  qr: "https://www.verify.gov.sg/",
+  qr: "https://www.verify.gov.sg",
   expiration: "2021-10-01",
   patientDetails: genPatientDetails(patientDetails),
+};
+
+export const basicDetailsVaccination: BasicDetails = {
+  ...basicDetailsTest,
+  title: "Vaccination Certificate",
 };
 
 export const testingRecord: TestingRecord = {
@@ -53,19 +58,21 @@ export const vaccinationRecord: VaccinationRecord = {
 
 describe("genGPayCovidCard() [Single record]", () => {
   it("TestingRecord", () => {
-    const singleTestingRecord = genGPayCovidCard(basicDetails, [genTestingRecord(testingRecord)]);
+    const singleTestingRecord = genGPayCovidCard(basicDetailsTest, [genTestingRecord(testingRecord)]);
     expect({ iat: TEST_IAT, ...singleTestingRecord }).toStrictEqual(notarisePdtSingleRecord);
   });
 
   it("VaccinationRecord", () => {
-    const singleVaccinationRecord = genGPayCovidCard(basicDetails, [genVaccinationRecord(vaccinationRecord)]);
+    const singleVaccinationRecord = genGPayCovidCard(basicDetailsVaccination, [
+      genVaccinationRecord(vaccinationRecord),
+    ]);
     expect({ iat: TEST_IAT, ...singleVaccinationRecord }).toStrictEqual(notariseVacSingleRecord);
   });
 });
 
 describe("genGPayCovidCard() [Multi record]", () => {
   it("TestingRecord", () => {
-    const multiTestingRecord = genGPayCovidCard(basicDetails, [
+    const multiTestingRecord = genGPayCovidCard(basicDetailsTest, [
       genTestingRecord(testingRecord),
       genTestingRecord(testingRecord),
     ]);
@@ -73,7 +80,7 @@ describe("genGPayCovidCard() [Multi record]", () => {
   });
 
   it("VaccinationRecord", () => {
-    const multiVaccinationRecord = genGPayCovidCard(basicDetails, [
+    const multiVaccinationRecord = genGPayCovidCard(basicDetailsVaccination, [
       genVaccinationRecord(vaccinationRecord),
       genVaccinationRecord(vaccinationRecord),
     ]);

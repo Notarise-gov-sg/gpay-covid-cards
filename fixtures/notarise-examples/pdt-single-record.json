@@ -14,7 +14,7 @@
         "barcode": {
           "alternateText": "Scan this QR to verify your HealthCert",
           "type": "qrCode",
-          "value": "https://www.verify.gov.sg/"
+          "value": "https://www.verify.gov.sg"
         },
         "expiration": "2021-10-01",
         "logo": {

@@ -10,11 +10,11 @@
         "id": "3388000000016843803.some_uuid",
         "issuerId": "3388000000016843803",
         "cardColorHex": "#FFFFFF",
-        "title": "COVID-19 Test Result Card",
+        "title": "Vaccination Certificate",
         "barcode": {
           "alternateText": "Scan this QR to verify your HealthCert",
           "type": "qrCode",
-          "value": "https://www.verify.gov.sg/"
+          "value": "https://www.verify.gov.sg"
         },
         "expiration": "2021-10-01",
         "logo": {

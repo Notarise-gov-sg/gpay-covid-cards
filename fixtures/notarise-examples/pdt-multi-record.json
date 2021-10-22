@@ -1,16 +1,16 @@
 {
   "iat": 1633413015,
   "aud": "google",
-  "iss": "staging@notarise-gpay-covid-cards.iam.gserviceaccount.com",
+  "iss": "issuer@xxx.iam.gserviceaccount.com",
   "typ": "savetogooglepay",
   "origins": [],
   "payload": {
     "covidCardObjects": [
       {
-        "id": "3388000000016843803.some_uuid",
-        "issuerId": "3388000000016843803",
+        "id": "issuer_id.some_uuid",
+        "issuerId": "issuer_id",
         "cardColorHex": "#FFFFFF",
-        "title": "COVID-19 Test Result Card",
+        "title": "COVID-19 Test Result",
         "barcode": {
           "alternateText": "Scan this QR to verify your HealthCert",
           "type": "qrCode",

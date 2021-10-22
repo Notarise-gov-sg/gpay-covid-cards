@@ -10,7 +10,7 @@
         "id": "your_issuer_id.unique_object_id",
         "issuerId": "your_issuer_id",
         "cardColorHex": "#223CFF",
-        "title": "COVID-19 Test Result Card",
+        "title": "COVID-19 Test Result",
         "barcode": {
           "alternateText": "some_barcode_value",
           "type": "qrCode",

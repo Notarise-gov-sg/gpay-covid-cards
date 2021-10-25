@@ -32,7 +32,7 @@ const basicDetails: BasicDetails = {
   iss: "account@project-id.iam.gserviceaccount.com",
   uuid: "some_uuid",
   issuerId: "issuer_id",
-  title: "COVID-19 Test Result Card",
+  title: "COVID-19 Test Result",
   qr: "https://www.verify.gov.sg/",
   expiration: "2021-10-01",
   patientDetails: gpay.genPatientDetails(patientDetails),

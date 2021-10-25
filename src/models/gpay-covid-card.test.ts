@@ -19,10 +19,10 @@ export const patientDetails: PatientDetails = {
 };
 
 export const basicDetailsTest: BasicDetails = {
-  iss: "staging@notarise-gpay-covid-cards.iam.gserviceaccount.com",
+  iss: "issuer@xxx.iam.gserviceaccount.com",
   uuid: "some_uuid",
-  issuerId: "3388000000016843803",
-  title: "COVID-19 Test Result Card",
+  issuerId: "issuer_id",
+  title: "COVID-19 Test Result",
   qr: "https://www.verify.gov.sg",
   expiration: "2021-10-01",
   patientDetails: genPatientDetails(patientDetails),

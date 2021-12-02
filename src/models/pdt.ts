@@ -21,9 +21,17 @@ export const genTestingRecord = ({
     "10828004": "Positive",
   };
 
-  if (testResultDict[testResultCode] !== testResultDescription) {
+  if (!testResultDict[testResultCode]) {
     throw new Error(
-      `testResultCode (${testResultCode}) has an incorrect testResultDescription - ${testResultCode} should equal ${testResultDict[testResultCode]}`
+      `Invalid testResultCode (${testResultCode}) received. Should be one of these values: ${JSON.stringify(
+        Object.keys(testResultDict)
+      )}`
+    );
+  }
+
+  if (testResultDict[testResultCode].toLowerCase() !== testResultDescription.toLowerCase()) {
+    throw new Error(
+      `Mismatched testResultCode & testResultDescription. Expected: ${testResultCode} - ${testResultDict[testResultCode]}. Received ${testResultCode} - ${testResultDescription}.`
     );
   }
 

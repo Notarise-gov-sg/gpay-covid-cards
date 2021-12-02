@@ -17,8 +17,19 @@ describe("genTestingRecord()", () => {
   it("should produce valid TestingRecord for Negative record", () => {
     const valid: TestingRecord = {
       ...validTestingRecord,
-      testResultCode: "260385009", // Negative
-      testResultDescription: "Negative", // Negative
+      testResultCode: "260385009", // The correct Negative code
+      testResultDescription: "Negative", // The correct Negative string
+    };
+
+    expect(() => genTestingRecord(valid)).not.toThrowError();
+    expect(genTestingRecord(valid)).toStrictEqual(valid);
+  });
+
+  it("should produce valid TestingRecord for Negative record (regardless of upper/lower case)", () => {
+    const valid: TestingRecord = {
+      ...validTestingRecord,
+      testResultCode: "260385009", // The correct Negative code
+      testResultDescription: "nEgAtIve" as any, // An acceptable Negative string
     };
 
     expect(() => genTestingRecord(valid)).not.toThrowError();
@@ -28,35 +39,58 @@ describe("genTestingRecord()", () => {
   it("should produce valid TestingRecord for Positive record", () => {
     const valid: TestingRecord = {
       ...validTestingRecord,
-      testResultCode: "10828004", // Positive
-      testResultDescription: "Positive", // Positive
+      testResultCode: "10828004", // The correct Positive code
+      testResultDescription: "Positive", // The correct Positive string
     };
 
     expect(() => genTestingRecord(valid)).not.toThrowError();
     expect(genTestingRecord(valid)).toStrictEqual(valid);
   });
 
-  it("should throw error there is a mismatched between testResultCode and testResultDescription (Negative)", () => {
+  it("should produce valid TestingRecord for Positive record  (regardless of upper/lower case)", () => {
+    const valid: TestingRecord = {
+      ...validTestingRecord,
+      testResultCode: "10828004", // The correct Positive code
+      testResultDescription: "pOsItIvE" as any, // An acceptable Positive string
+    };
+
+    expect(() => genTestingRecord(valid)).not.toThrowError();
+    expect(genTestingRecord(valid)).toStrictEqual(valid);
+  });
+
+  it("should throw error there is an invalid testResultCode", () => {
     const invalid: TestingRecord = {
       ...validTestingRecord,
-      testResultCode: "260385009", // Negative
-      testResultDescription: "Positive", // Positive
+      testResultCode: "123456" as any, // Invalid test code
+      testResultDescription: "Positive",
     };
 
     expect(() => genTestingRecord(invalid)).toThrowError(
-      `testResultCode (260385009) has an incorrect testResultDescription - 260385009 should equal Negative`
+      `Invalid testResultCode (123456) received. Should be one of these values: ["10828004","260385009"]`
+    );
+  });
+
+  it("should throw error there is a mismatched between testResultCode and testResultDescription (Negative)", () => {
+    const invalid: TestingRecord = {
+      ...validTestingRecord,
+      testResultCode: "260385009", // The correct Negative code
+      testResultDescription: "Positive", // An incorrect string
+    };
+
+    expect(() => genTestingRecord(invalid)).toThrowError(
+      `Mismatched testResultCode & testResultDescription. Expected: 260385009 - Negative. Received 260385009 - Positive.`
     );
   });
 
   it("should throw error there is a mismatched between testResultCode and testResultDescription (Positive)", () => {
     const invalid: TestingRecord = {
       ...validTestingRecord,
-      testResultCode: "10828004", // Positive
-      testResultDescription: "Negative", // Negative
+      testResultCode: "10828004", // The correct Positive code
+      testResultDescription: "Negative", // An incorrect string
     };
 
     expect(() => genTestingRecord(invalid)).toThrowError(
-      `testResultCode (10828004) has an incorrect testResultDescription - 10828004 should equal Positive`
+      `Mismatched testResultCode & testResultDescription. Expected: 10828004 - Positive. Received 10828004 - Negative.`
     );
   });
 });

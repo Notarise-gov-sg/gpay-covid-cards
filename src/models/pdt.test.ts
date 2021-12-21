@@ -29,6 +29,7 @@ describe("genTestingRecord()", () => {
     const valid: TestingRecord = {
       ...validTestingRecord,
       testResultCode: "260415000", // The correct "Not detected" code
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       testResultDescription: "Not detected" as any, // The correct "Not detected" string
     };
 
@@ -44,6 +45,7 @@ describe("genTestingRecord()", () => {
     const valid: TestingRecord = {
       ...validTestingRecord,
       testResultCode: "260385009", // The correct Negative code
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       testResultDescription: "nEgAtIve" as any, // An acceptable Negative string
     };
 
@@ -66,6 +68,7 @@ describe("genTestingRecord()", () => {
     const valid: TestingRecord = {
       ...validTestingRecord,
       testResultCode: "260373001", // The correct "Detected" code
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       testResultDescription: "Detected" as any, // The correct "Detected" string
     };
 
@@ -81,6 +84,7 @@ describe("genTestingRecord()", () => {
     const valid: TestingRecord = {
       ...validTestingRecord,
       testResultCode: "10828004", // The correct Positive code
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       testResultDescription: "pOsItIvE" as any, // An acceptable Positive string
     };
 
@@ -91,6 +95,7 @@ describe("genTestingRecord()", () => {
   it("should throw error there is an invalid testResultCode", () => {
     const invalid: TestingRecord = {
       ...validTestingRecord,
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       testResultCode: "123456" as any, // Invalid test code
       testResultDescription: "Positive",
     };

@@ -8,6 +8,18 @@ export interface PatientDetails {
   patientName: string;
 }
 
+/**
+ * What Notarise uses:
+ * 260385009 (Negative) / 10828004 (Positive)
+ */
+export const notariseAcceptedTestResultCodes = ["260385009", "10828004"] as const;
+
+/**
+ * What EU DCC uses:
+ * 260415000 (Not detected) / 260373001 (Detected)
+ */
+export const euAcceptedTestResultCodes = ["260415000", "260373001"] as const;
+
 export interface TestingRecord {
   administrationDateTime: string;
   contactInfo: string;
@@ -15,7 +27,7 @@ export interface TestingRecord {
   reportDateTime: string;
   testCode: string;
   testDescription: string;
-  testResultCode: "260385009" | "10828004";
+  testResultCode: typeof notariseAcceptedTestResultCodes[number] | typeof euAcceptedTestResultCodes[number];
   testResultDescription: "Negative" | "Positive";
   specimen: string;
 }

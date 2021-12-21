@@ -25,6 +25,21 @@ describe("genTestingRecord()", () => {
     expect(genTestingRecord(valid)).toStrictEqual(valid);
   });
 
+  it("should produce valid TestingRecord for Negative record using EU DCC Test Result Code", () => {
+    const valid: TestingRecord = {
+      ...validTestingRecord,
+      testResultCode: "260415000", // The correct "Not detected" code
+      testResultDescription: "Not detected" as any, // The correct "Not detected" string
+    };
+
+    expect(() => genTestingRecord(valid)).not.toThrowError();
+    expect(genTestingRecord(valid)).toStrictEqual({
+      ...valid,
+      testResultCode: "260385009",
+      testResultDescription: "Negative",
+    });
+  });
+
   it("should produce valid TestingRecord for Negative record (regardless of upper/lower case)", () => {
     const valid: TestingRecord = {
       ...validTestingRecord,
@@ -33,7 +48,7 @@ describe("genTestingRecord()", () => {
     };
 
     expect(() => genTestingRecord(valid)).not.toThrowError();
-    expect(genTestingRecord(valid)).toStrictEqual(valid);
+    expect(genTestingRecord(valid)).toStrictEqual({ ...valid, testResultDescription: "Negative" });
   });
 
   it("should produce valid TestingRecord for Positive record", () => {
@@ -47,6 +62,21 @@ describe("genTestingRecord()", () => {
     expect(genTestingRecord(valid)).toStrictEqual(valid);
   });
 
+  it("should produce valid TestingRecord for Positive record using EU DCC Test Result Code", () => {
+    const valid: TestingRecord = {
+      ...validTestingRecord,
+      testResultCode: "260373001", // The correct "Detected" code
+      testResultDescription: "Detected" as any, // The correct "Detected" string
+    };
+
+    expect(() => genTestingRecord(valid)).not.toThrowError();
+    expect(genTestingRecord(valid)).toStrictEqual({
+      ...valid,
+      testResultCode: "10828004",
+      testResultDescription: "Positive",
+    });
+  });
+
   it("should produce valid TestingRecord for Positive record  (regardless of upper/lower case)", () => {
     const valid: TestingRecord = {
       ...validTestingRecord,
@@ -55,7 +85,7 @@ describe("genTestingRecord()", () => {
     };
 
     expect(() => genTestingRecord(valid)).not.toThrowError();
-    expect(genTestingRecord(valid)).toStrictEqual(valid);
+    expect(genTestingRecord(valid)).toStrictEqual({ ...valid, testResultDescription: "Positive" });
   });
 
   it("should throw error there is an invalid testResultCode", () => {
@@ -66,7 +96,7 @@ describe("genTestingRecord()", () => {
     };
 
     expect(() => genTestingRecord(invalid)).toThrowError(
-      `Invalid testResultCode (123456) received. Should be one of these values: ["10828004","260385009"]`
+      `Invalid testResultCode (123456) received. Should be one of these values: ["260385009","10828004","260415000","260373001"]`
     );
   });
 

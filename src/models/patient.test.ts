@@ -20,7 +20,7 @@ describe("genPatientDetails()", () => {
 
     expect(() => genPatientDetails(valid)).not.toThrowError();
     expect(genPatientDetails(valid)).toMatchInlineSnapshot(`
-Object {
+{
   "dateOfBirth": "1881-05-19",
   "patientId": "123-456-ABC",
   "patientIdLabel": "National ID",
